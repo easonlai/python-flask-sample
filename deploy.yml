@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-flask-sample
+  labels:
+    app: python-flask-sample
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    run: python-flask-sample
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: python-flask-sample
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: python-flask-sample
+        app: python-flask-sample
+    spec:
+      containers:
+      - name: python-flask-sample
+        image: easonlai/python-flask-sample
+        ports:
+          - containerPort: 5000
+      #imagePullSecrets:
+      #  - name: testsecret
