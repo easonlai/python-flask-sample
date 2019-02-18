@@ -10,5 +10,8 @@ Usage:
 * To push image to docker hub > docker push easonlai/python-flask-sample
 * To create new deployment in K8S cluster > kubectl create -f deploy.yml
 * To delete deployment in K8S cluster > kubectl delete -f deploy.yml
+* To get deployment status in K8S cluster > kubectl get deployment
+* To scale up deployment in K8S cluster > kubectl scale deployment/python-flask-sample --replicas=3
+* To scale up deployment in K8S cluster > kubectl scale deployment/python-flask-sample --replicas=1
 
 
